@@ -1,11 +1,7 @@
 pipeline {
     agent any
 
-    tools {
-        // Defines the JDK to use. Make sure you have a JDK configured in your Jenkins Global Tool Configuration named 'jdk21' (or change this name to match yours)
-        // Minecraft 1.21.x requires Java 21.
-        jdk 'jdk21'
-    }
+
 
     stages {
         stage('Checkout') {
