@@ -1,0 +1,57 @@
+package com.starfish_studios.naturalist.client.model;
+
+import com.starfish_studios.naturalist.Naturalist;
+import com.starfish_studios.naturalist.common.entity.Deer;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Mth;
+import org.jetbrains.annotations.NotNull;
+import software.bernie.geckolib.constant.DataTickets;
+import software.bernie.geckolib.core.animatable.model.CoreGeoBone;
+import software.bernie.geckolib.core.animation.AnimationState;
+import software.bernie.geckolib.model.GeoModel;
+import software.bernie.geckolib.model.data.EntityModelData;
+
+@Environment(EnvType.CLIENT)
+public class DeerModel extends GeoModel<Deer> {
+    @Override
+    @SuppressWarnings("removal")
+    public ResourceLocation getModelResource(Deer deer) {
+        if (deer.isBaby()) {
+            return new ResourceLocation(Naturalist.MOD_ID, "entity/fawn");
+        }
+        return new ResourceLocation(Naturalist.MOD_ID, "entity/deer");
+    }
+
+    @Override
+    @SuppressWarnings("removal")
+    public ResourceLocation getTextureResource(Deer deer) {
+        if (deer.isBaby()) {
+            return new ResourceLocation(Naturalist.MOD_ID, "textures/entity/fawn.png");
+        }
+
+        return new ResourceLocation(Naturalist.MOD_ID, "textures/entity/deer.png");
+    }
+
+    @Override
+    public ResourceLocation getAnimationResource(Deer deer) {
+        return new ResourceLocation(Naturalist.MOD_ID, "deer.rp_anim");
+    }
+
+    @Override
+    public void setCustomAnimations(@NotNull Deer entity, long instanceId, AnimationState<Deer> animationState) {
+        super.setCustomAnimations(entity, instanceId, animationState);
+
+        if (animationState == null) return;
+
+        EntityModelData extraDataOfType = animationState.getData(DataTickets.ENTITY_MODEL_DATA);
+        CoreGeoBone head = this.getAnimationProcessor().getBone("head");
+
+        if (!entity.isEating()) {
+            head.setRotX(-extraDataOfType.headPitch() * Mth.DEG_TO_RAD);
+            head.setRotY(-extraDataOfType.netHeadYaw() * Mth.DEG_TO_RAD);
+        }
+    }
+
+}
