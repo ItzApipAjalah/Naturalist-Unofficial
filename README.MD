@@ -16,3 +16,7 @@ The primary purpose of this fork is to fix several prominent bugs, log spam, and
 All original assets, concepts, and mod design belong to the Starfish Studios team.
 - Original Modrinth Page: [Naturalist](https://modrinth.com/mod/naturalist)
 - Original GitHub Repository: [chaevsfe/Naturalist](https://github.com/chaevsfe/Naturalist)
+
+## Downloads / CI Builds
+You can check out the automated builds and download the latest compiled versions here: 
+[Jenkins CI - Minecraft Forked Mods](https://ci.kotaklegend.my.id/view/Minecraft-Forked-Mod/)
