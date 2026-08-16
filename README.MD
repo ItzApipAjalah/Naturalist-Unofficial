@@ -1,4 +1,4 @@
-# Naturalist (Bugfix Fork)
+# Naturalist Fabric Fork Bug fix (1.21.11)
 
 This project is a fork of the amazing [Naturalist](https://modrinth.com/mod/naturalist) mod, cloned from the [chaevsfe/Naturalist 1.21.11-fabric branch](https://github.com/chaevsfe/Naturalist/tree/1.21.11-fabric).
 
