@@ -36,7 +36,7 @@ pipeline {
     post {
         success {
             // Archive the compiled mod jar files so you can download them from the Jenkins UI
-            archiveArtifacts artifacts: 'build/libs/**/*.jar, fabric/build/libs/**/*.jar, forge/build/libs/**/*.jar', allowEmptyArchive: true
+            archiveArtifacts artifacts: 'build/libs/**/*.jar, fabric/build/libs/**/*.jar, forge/build/libs/**/*.jar', excludes: '**/*-sources.jar', allowEmptyArchive: true
             echo 'Build completed successfully! Artifacts have been archived.'
         }
         failure {
